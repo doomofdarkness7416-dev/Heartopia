@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Heartopia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">💙 Heartopia</div>
+  <ul>
+    <li onclick="showPage('home')">Home</li>
+    <li onclick="showPage('map')">Map</li>
+    <li onclick="showPage('items')">Items</li>
+    <li onclick="showPage('npcs')">NPCs</li>
+    <li onclick="showPage('guides')">Guides</li>
+    <li onclick="showPage('updates')">Updates</li>
+    <li onclick="showPage('socials')">Socials</li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="home-bg"></div>
+
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="cloud cloud4"></div>
+  <div class="cloud cloud5"></div>
+  <div class="cloud cloud6"></div>
+
+  <div class="slideshow">
+    <img id="slideImage">
+  </div>
+
+  <img src="images/Heartopia_title.png" class="title-pop bounce-in">
+</section>
+
+<!-- MAP -->
+<section id="map" class="page">
+<div class="map-layout">
+
+  <div class="map-sidebar">
+    <h2>Heartopia Map</h2>
+    <input id="searchInput" placeholder="Search markers">
+
+    <!-- Category toggles -->
+    <div class="category" onclick="toggleCategory('ingredientsList')">
+      <strong>Ingredients</strong> ▼
+      <div id="ingredientsList" class="category-items hidden">
+        <button onclick="setCurrentMarker('truffle')">🌱 Truffles</button>
+        <button onclick="setCurrentMarker('orange')">🍊 Oranges</button>
+        <button onclick="setCurrentMarker('apple')">🍎 Apples</button>
+        <button onclick="setCurrentMarker('blueberry')">🫐 Blueberry</button>
+        <button onclick="setCurrentMarker('mushroom')">🍄 Mushrooms</button>
+        <button onclick="setCurrentMarker('raspberry')">🍓 Raspberry</button>
+      </div>
+    </div>
+
+    <div class="category" onclick="toggleCategory('fishList')">
+      <strong>Fish</strong> ▼
+      <div id="fishList" class="category-items hidden">
+        <button onclick="setCurrentMarker('fish')">🐟 Fish</button>
+      </div>
+    </div>
+
+    <div class="category" onclick="toggleCategory('birdList')">
+      <strong>Birds</strong> ▼
+      <div id="birdList" class="category-items hidden">
+        <button onclick="setCurrentMarker('bird')">🐦 Birds</button>
+      </div>
+    </div>
+
+    <div class="category" onclick="toggleCategory('insectList')">
+      <strong>Insects</strong> ▼
+      <div id="insectList" class="category-items hidden">
+        <button onclick="setCurrentMarker('insect')">🦋 Insects</button>
+      </div>
+    </div>
+
+    <div class="category" onclick="toggleCategory('animalList')">
+      <strong>Animal Care</strong> ▼
+      <div id="animalList" class="category-items hidden">
+        <button onclick="setCurrentMarker('animal')">🐾 Animal Care</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mapWrapper">
+    <div id="mapInner">
+      <img src="images/Heartopia_Map.png" class="map-image">
+    </div>
+  </div>
+
+  <!-- Editor Button -->
+  <button id="editorBtn" class="editor-btn">Editor Mode</button>
+
+  <!-- Editor layout -->
+  <div id="editorLayout" class="editor-layout hidden">
+    <div class="editor-tools">
+      <div class="tool pencil" title="Add Marker">✏️</div>
+      <div class="tool eraser" title="Delete Marker">🧽</div>
+    </div>
+
+    <!-- Bottom circle of 10 markers for selection -->
+    <div class="editor-marker-circle hidden">
+      <div class="marker-choice" data-type="truffle">🌱</div>
+      <div class="marker-choice" data-type="orange">🍊</div>
+      <div class="marker-choice" data-type="apple">🍎</div>
+      <div class="marker-choice" data-type="blueberry">🫐</div>
+      <div class="marker-choice" data-type="mushroom">🍄</div>
+      <div class="marker-choice" data-type="raspberry">🍓</div>
+      <div class="marker-choice" data-type="fish">🐟</div>
+      <div class="marker-choice" data-type="bird">🐦</div>
+      <div class="marker-choice" data-type="insect">🦋</div>
+      <div class="marker-choice" data-type="animal">🐾</div>
+    </div>
+  </div>
+
+  <!-- Marker Info GUI -->
+  <div id="markerGUI" class="marker-gui hidden">
+    <h3>Add Marker Info</h3>
+    <input id="markerName" placeholder="Name your marker">
+    <textarea id="markerDesc" placeholder="Description"></textarea>
+    <div class="image-upload">
+      <input type="file" id="markerImage" accept="image/*">
+      <p>Drag & Drop or select square image</p>
+      <p id="imgError" style="color:red;"></p>
+    </div>
+    <button id="submitMarker">Place Marker</button>
+  </div>
+
+</div>
+</section>
+
+<!-- SOCIALS -->
+<section id="socials" class="page socials">
+<div class="social-container">
+<div class="auth-box centered">
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <button onclick="register()">Register</button>
+</div>
+<div id="feed" class="feed hidden"></div>
+</div>
+</section>
+
+<!-- PLACEHOLDER PAGES -->
+<section id="items" class="page placeholder">Items coming soon</section>
+<section id="npcs" class="page placeholder">NPCs coming soon</section>
+<section id="guides" class="page placeholder">Guides coming soon</section>
+<section id="updates" class="page placeholder">Updates coming soon</section>
+
+<script src="script.js"></script>
+</body>
+</html>
